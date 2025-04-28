@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiliCorp - Join the Initiative</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Video Background Container - Now part of the scrollable flow -->
+    <div class="video-background-scrollable">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="bg-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+    
+        <div class="video-banner-content">
+            <h1>Welcome to MiliCorp</h1>
+            <p class="tagline">Forging Success in the Black.</p>
+            <a href="#content-start" class="scroll-down-arrow">↓</a>
+
+        </div>
+    </div>
+    
+
+
+    <div id="content-start" class="content-area"> 
+        <header class="site-header">
+            <nav class="navbar">
+                <div class="nav-container">
+                    <a href="#home" class="nav-logo">MiliCorp</a>
+                    <ul class="nav-menu">
+                        <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
+                        <li class="nav-item"><a href="#operations" class="nav-link">Operations</a></li>
+                        <li class="nav-item"><a href="#join" class="nav-link btn btn-primary">Join Initiative</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section id="about" class="content-section">
+                <h2>Who We Are</h2>
+                <p><i>"Strength Through Structure. Power Through Precision"</i></p>
+
+                <p>Milicorp is a Star Citizen organization built on strength, strategy, and unity. We explore, trade, and dominate the
+                verse with precision and pride. Whether you’re a fighter, trader, or explorer, there’s a place for you in Milicorp. Join
+                us—your future among the stars starts here.</p>
+            </section>
+
+            <section id="operations" class="content-section alt-bg">
+                <h2>Core Operations</h2>
+                <p><i>Born from necessity. Strengthened by self-reliance. Driven by results.</i></p>
+                <div class="operations-grid">
+                    
+                            <!-- START: Add these items -->
+                            <div class="operation-item">
+                                <h3>Fleet Operations</h3>
+                                <p>High-value, high-risk operations across secured and contested systems.</p>
+                            </div>
+                            
+                            <div class="operation-item">
+                                <h3>Ground Operations</h3>
+                                <p>MiliCorp specializes in Advanced Ground Combat Operations, fighting for ground superiority.</p>
+                            </div>
+                            
+                            <div class="operation-item">
+                                <h3>Industry and Logistics</h3>
+                                <p>Streamlining supply chains and providing tactical support for allied operations and large-scale fleet
+                                    movements.</p>
+                            </div>
+                            <!-- END: Add these items -->
+                    
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <section id="join" class="content-section">
+                <h2>Answer the Call: Join MiliCorp</h2>
+                <p>Are you prepared to operate at the highest level?...</p>
+                <a href="#" class="btn btn-cta" target="_blank" rel="noopener noreferrer">Initiate Application / Discord
+                    Intel</a>
+            </section>
+        </main>
+
+        <footer class="site-footer-bottom">
+            <p>© 2954 MiliCorp. Dominating the Verse.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Smooth scrolling (adjust links if #home changes)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Prevent default for internal links, allow external
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    // Special case for scrolling to top if needed
+                    if (targetId === '#home' || targetId === '#') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            // Calculate position considering the fixed header height
+                            const headerOffset = document.querySelector('.site-header')?.offsetHeight || 0;
+                            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                            const offsetPosition = elementPosition - headerOffset - 20; // Extra 20px padding
+
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
